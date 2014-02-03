@@ -109,3 +109,6 @@ Now, we will get some config values:
 ```
 
 Notice that **default values** copies itself to the config if there is no key in the environment config with the same name.
+
+## License
+Konfig is released under GNU General Public License v3 (or higher) published by Free Software Foundation. See the LICENSE file for more details.
