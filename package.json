@@ -1,6 +1,6 @@
 {
   "name": "konfig",
-  "description": "Config management module. Automatic, environment specific and dynamic.",
+  "description": "Config loader module. Automatic, environment specific and dynamic.",
   "keywords": [
     "config",
     "configuration",
@@ -10,7 +10,7 @@
   ],
   "author": "Ali Davut <adavut@gmail.com>",
   "repository": "git://github.com/vngrs/konfig.git",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha test/index.coffee"
@@ -26,5 +26,6 @@
   "dependencies": {
     "underscore": "~1.5.2",
     "js-yaml": "~3.0.1"
-  }
+  },
+  "license": "GPL-3.0"
 }
