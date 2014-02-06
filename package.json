@@ -26,5 +26,6 @@
   "dependencies": {
     "underscore": "~1.5.2",
     "js-yaml": "~3.0.1"
-  }
+  },
+  "license": "GPL-3.0"
 }
