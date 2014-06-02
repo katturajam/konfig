@@ -14,6 +14,19 @@ describe 'Load Configs', ->
     should.exist(config.twitter)
     done()
 
+  it 'should load cson files correctly', (done) ->
+    config = require('../src')()
+    should.exist(config.csonconfig)
+    done()
+
+  it 'should load cson file by environment', (done) ->
+    process.env.NODE_ENV = 'production'
+    config = require('../src')()
+    delete process.env.NODE_ENV
+    config.csonconfig.a.should.equal(123)
+    config.csonconfig.b.should.equal(3456)
+    done()
+
   it 'should not load other files', (done) ->
     config = require('../src')()
     should.not.exist(config.rabbit)

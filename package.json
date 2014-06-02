@@ -10,7 +10,7 @@
   ],
   "author": "Ali Davut <adavut@gmail.com>",
   "repository": "git://github.com/vngrs/konfig.git",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha test/index.coffee"
@@ -25,7 +25,8 @@
   },
   "dependencies": {
     "underscore": "~1.5.2",
-    "js-yaml": "~3.0.1"
+    "js-yaml": "~3.0.1",
+    "cson": "~1.6.0"
   },
   "license": "GPL-3.0"
 }
