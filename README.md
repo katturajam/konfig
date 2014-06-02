@@ -1,6 +1,6 @@
 KONFIG
 ======
-Konfig is a **config loader** module which allows you to load **json** and **yaml** files automatically **by environment** in node.js applications. You can also define **dynamic values** which can be used especially for dynamic environment variables on Heroku like services.
+Konfig is a **config loader** module which allows you to load **json**, **cson** and **yaml** files automatically **by environment** in node.js applications. You can also define **dynamic values** which can be used especially for dynamic environment variables on Heroku like services.
 
 ## Installation
 First intall module from npm :

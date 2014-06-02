@@ -2,6 +2,7 @@ _ = require('underscore')
 path = require('path')
 fs = require('fs')
 yaml = require('js-yaml')
+cson = require('cson')
 
 extensions =
   json:
@@ -10,6 +11,8 @@ extensions =
     parse: (content) -> yaml.load(content)
   yaml:
     parse: (content) -> yaml.load(content)
+  cson:
+    parse: (content) -> cson.parseSync(content)
 
 load_config = (opts) ->
   configs = {}
