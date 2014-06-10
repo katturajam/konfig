@@ -111,4 +111,4 @@ Now, we will get some config values:
 Notice that **default values** copies itself to the config if there is no key in the environment config with the same name.
 
 ## License
-Konfig is released under GNU General Public License v3 (or higher) published by Free Software Foundation. See the LICENSE file for more details.
+Konfig is released under GNU Lesser General Public License v3 (or higher) published by Free Software Foundation. See http://www.gnu.org/licenses/lgpl-3.0.html for more details.
