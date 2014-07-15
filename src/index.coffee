@@ -14,6 +14,15 @@ extensions =
   cson:
     parse: (content) -> cson.parseSync(content)
 
+deepObjectExtend = (target, source) ->
+  prop = undefined
+  for prop of source
+    if typeof (target[prop]) is "object" and typeof (source[prop]) is "object" and prop of target
+      deepObjectExtend target[prop], source[prop]
+    else
+      target[prop] = source[prop]
+  target
+
 load_config = (opts) ->
   configs = {}
   dir = path.resolve(process.cwd(), opts.path)
@@ -24,8 +33,9 @@ load_config = (opts) ->
 
 get_environment = (config) ->
   env = process.env.NODE_ENV or 'development'
+  env_default = config["default"] or {}
   env_config = config[env] or {}
-  _.defaults(env_config, config['default'])
+  deepObjectExtend(env_default, env_config)
 
 inject_variables = (file) ->
   file.replace /#\{(.+)\}/g, (match, code) ->

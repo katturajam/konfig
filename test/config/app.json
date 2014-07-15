@@ -1,7 +1,11 @@
 {
   "default": {
     "port": 3000,
-    "name": "Test App"
+    "name": "Test App",
+    "features": {
+      "merge": "Y",
+      "extend": "Y"
+    }
   },
 
   "development": {
@@ -13,6 +17,9 @@
   },
 
   "production":{
-    "port": 3001
+    "port": 3001,
+    "features": {
+      "merge": "N"
+    }
   }
 }
