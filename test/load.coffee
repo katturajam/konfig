@@ -40,6 +40,8 @@ describe 'Load Configs', ->
   it 'should load development configs without NODE_ENV variable', (done) ->
     config = require('../src')()
     config.app.name.should.be.equal('Test Development')
+    config.app.features.merge.should.be.equal("Y")
+    config.app.features.extend.should.be.equal("Y")
     config.app.port.should.be.equal(3000)
     done()
 
@@ -49,6 +51,15 @@ describe 'Load Configs', ->
     delete process.env.NODE_ENV
     config.app.name.should.equal('Test App')
     config.app.port.should.equal(3001)
+    done()
+
+  it 'should allow deep merging on config variables between default and the environment', (done) ->
+    process.env.NODE_ENV = 'production'
+    config = require('../src')()
+    delete process.env.NODE_ENV
+    config.app.name.should.equal('Test App')
+    config.app.features.merge.should.be.equal("N")
+    config.app.features.extend.should.be.equal("Y")
     done()
 
   it 'should load correct folder if options.path exists', (done) ->
