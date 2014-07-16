@@ -1,8 +1,8 @@
-_ = require('underscore')
 path = require('path')
 fs = require('fs')
 yaml = require('js-yaml')
 cson = require('cson')
+Lazy = require('lazy.js')
 
 extensions =
   json:
@@ -13,15 +13,6 @@ extensions =
     parse: (content) -> yaml.load(content)
   cson:
     parse: (content) -> cson.parseSync(content)
-
-deepObjectExtend = (target, source) ->
-  prop = undefined
-  for prop of source
-    if typeof (target[prop]) is "object" and typeof (source[prop]) is "object" and prop of target
-      deepObjectExtend target[prop], source[prop]
-    else
-      target[prop] = source[prop]
-  target
 
 load_config = (opts) ->
   configs = {}
@@ -35,7 +26,7 @@ get_environment = (config) ->
   env = process.env.NODE_ENV or 'development'
   env_default = config["default"] or {}
   env_config = config[env] or {}
-  deepObjectExtend(env_default, env_config)
+  Lazy(env_default).merge(env_config).toObject()
 
 inject_variables = (file) ->
   file.replace /#\{(.+)\}/g, (match, code) ->
@@ -59,5 +50,5 @@ load_files = (path) ->
 module.exports = (opts = {})->
   options =
     path: './config'
-  opts = _.defaults(opts, options)
+  opts = Lazy(opts).defaults(options).toObject()
   load_config(opts)
