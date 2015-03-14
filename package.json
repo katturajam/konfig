@@ -24,9 +24,9 @@
     "matchdep": "~0.3.0"
   },
   "dependencies": {
-    "js-yaml": "~3.0.1",
-    "cson": "~1.6.0",
-    "lazy.js": "~0.3.2"
+    "cson": "~2.0.0",
+    "js-yaml": "~3.2.7",
+    "lazy.js": "~0.4.0"
   },
   "license": "LGPL-3.0"
 }

@@ -12,7 +12,7 @@ extensions =
   yaml:
     parse: (content) -> yaml.load(content)
   cson:
-    parse: (content) -> cson.parseSync(content)
+    parse: (content) -> cson.parse(content)
 
 load_config = (opts) ->
   configs = {}
