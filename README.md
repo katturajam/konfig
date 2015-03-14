@@ -70,13 +70,13 @@ development:
 test:
     port: 3001
 
-staging:
-    <<: *production
-
 production: &production
     port: #{process.env.PORT}
     secret_key: 3F8RRJR30UHERGUH8UERHGIUERHG3987GH8
 
+# aliases must be defined before you include!
+staging:
+    <<: *production
 ```
 
 After creating config files, let's try it by using node interpreter. But first ensure that the module is installed ```npm install konfig``` and open node interpreter in the root directory of the project :
